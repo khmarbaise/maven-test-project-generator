@@ -96,27 +96,27 @@ class PomFile {
               }
               'build' {
                 pluginManagement {
-                  plugins {
-                    pluginList.each { value ->
-                      plugin {
-                        groupId(value['groupId'])
-                        artifactId(value['artifactId'])
-                        version(value['version'])
-                        //println "gav: ${value['groupId']}:${value['artifactId']}:${value['version']}  ${value['configuration']}"
-                        if (value.containsKey('configuration')) {
-                          def configItems = value['configuration']
-                          //println "items: ${configItems}"
-                          configuration {
-                            configItems.each { configItem, configValue ->
-                              //println " -> ${configItem} ${configValue}"
-                              "${configItem}"("${configValue}")
-                            }
-                          }
-                        }
+                    plugins {
+                        pluginList.each { value ->
+                            plugin {
+                                groupId(value['groupId'])
+                                artifactId(value['artifactId'])
+                                version(value['version'])
+                                //println "gav: ${value['groupId']}:${value['artifactId']}:${value['version']}  ${value['configuration']}"
+                                if (value.containsKey('configuration')) {
+                                    def configItems = value['configuration']
+                                    //println "items: ${configItems}"
+                                    configuration {
+                                        configItems.each { configItem, configValue ->
+                                          //println " -> ${configItem} ${configValue}"
+                                          "${configItem}"("${configValue}")
+                                        }
+                                    }
+                                }
 
-                      }
+                            }
+                        }
                     }
-                  }
                 }
               }
             }
@@ -125,6 +125,24 @@ class PomFile {
   }
 }
 
+class JavaFile {
+  File baseFolder
+  JavaFile (File baseFolder ) {
+    this.baseFolder = baseFolder
+  }
+
+  def writeJavaFile () {
+    def javaFile = new File (this.baseFolder, "src/main/java/com/soebes")
+    javaFile.mkdirs() 
+    new File(javaFile,'FirstJava.java').withWriter('utf-8') { writer ->
+      writer.writeLine('package com.soebes;')
+      writer.writeLine('public class FirstJava {')
+      writer.writeLine('  public FirstJava() {')
+      writer.writeLine('  }')
+      writer.writeLine('}')
+    }
+  }
+}
 
 def folder = new File (".", "reactor")
 
@@ -137,7 +155,7 @@ def levelList = []
 (1..1000).each { level ->
 
   def levelFormat = sprintf ("%04d", level)
-  def levelModuleName = 'level-' + levelFormat
+  def levelModuleName = 'module-' + levelFormat
   println "Level: ${levelModuleName}"
 
   levelFolder = new File (folder, levelModuleName);
@@ -146,7 +164,9 @@ def levelList = []
   PomFile pf = new PomFile (levelFolder, "org.test.level", levelModuleName, "1.0-SNAPSHOT")
 
   pf.writePomFile(['groupId':'org.test.parent', 'artifactId':'reactor-parent'])
-   
+
+  new JavaFile(levelFolder).writeJavaFile()
+
   levelList << levelModuleName 
 
 }
