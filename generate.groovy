@@ -12,7 +12,13 @@ class PomFile {
     this.version = version
   }
 
+  def writePomFile (Map parentPar) {
+    writePomFile(parentPar, null)
+  }
   def writePomFile () {
+    writePomFile(null, null)
+  }
+  def writePomFile (Map parentPar, modulesPar) {
     new File(this.folder,'pom.xml').withWriter('utf-8') { writer ->
         def builder = new groovy.xml.MarkupBuilder(writer)
         builder.getMkp().xmlDeclaration( 'version':'1.0', 'encoding':'UTF-8')
@@ -22,15 +28,26 @@ class PomFile {
               'xsi:schemaLocation':"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
             ) {
             modelVersion("4.0.0")
-            parent {
-              groupId("xyz")
-              artifactId("abc")
+            if (parentPar != null) { 
+              parent {
+                groupId(parentPar['groupId'])
+                artifactId(parentPar['artifactId'])
+                version(this.version)
+              }
+            } else {
               version(this.version)
             }
             groupId(this.groupId)
             artifactId(this.artifactId)
 
-            packaging('pom')
+            if (modulesPar != null) {
+              packaging('pom')
+              modules {
+                modulesPar.each {
+                  module(it)
+                }
+              }
+            }
         }
     }    
   }
@@ -54,14 +71,17 @@ def levelList = []
   levelFolder = new File (folder, levelModuleName);
   levelFolder.mkdirs()
 
-  PomFile pf = new PomFile (levelFolder, "org.test", levelModuleName, "1.0-SNAPSHOT")
+  PomFile pf = new PomFile (levelFolder, "org.test.level", levelModuleName, "1.0-SNAPSHOT")
 
-  pf.writePomFile()
+  pf.writePomFile(['groupId':'org.test.parent', 'artifactId':'reactor-parent'])
    
   levelList << levelModuleName 
 
 }
 
+pf = new PomFile (folder, "org.test.parent", "reactor-parent", "1.0-SNAPSHOT")
+
+pf.writePomFile( null, levelList)
 
 /*
 (1..1000).each {
