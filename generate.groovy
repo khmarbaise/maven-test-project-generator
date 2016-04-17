@@ -152,7 +152,7 @@ if ( folder.exists() ) {
 folder.mkdirs()
 
 def levelList = []
-(1..1000).each { level ->
+(1..5000).each { level ->
 
   def levelFormat = sprintf ("%04d", level)
   def levelModuleName = 'module-' + levelFormat
