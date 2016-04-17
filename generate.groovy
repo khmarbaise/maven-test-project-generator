@@ -33,6 +33,16 @@ class PomFile {
       'artifactId' : 'maven-deploy-plugin',
       'version' : '2.8.2',
     ],
+    [
+      'groupId' : 'org.apache.maven.plugins',
+      'artifactId' : 'maven-surefire-plugin',
+      'version' : '2.19.1',
+    ],
+    [
+      'groupId' : 'org.apache.maven.plugins',
+      'artifactId' : 'maven-failsafe-plugin',
+      'version' : '2.19.1',
+    ],
   ]
   String groupId
   String artifactId
