@@ -14,10 +14,37 @@ class PomFile {
 
   def writePomFile () {
     new File(this.folder,'pom.xml').withWriter('utf-8') { writer ->
-        def xml = new groovy.xml.MarkupBuilder(writer).project {
+        def builder = new groovy.xml.MarkupBuilder(writer)
+        def mkp = builder.getMkp()
+        mkp.xmlDeclaration(
+          'version':'1.0',
+          'encoding':'UTF-8'
+        )
+/*
+          builder.bind {
+            mkp.namespaces << [
+              'xmlns':"http://maven.apache.org/POM/4.0.0",
+              'xmlns:xsi':"http://www.w3.org/2001/XMLSchema-instance",
+              'xsi:schemaLocation':"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+            ]
+          }
+          builder.encoding = "UTF-8"
+*/
+          builder.project ( 
+              'xmlns':"http://maven.apache.org/POM/4.0.0",
+              'xmlns:xsi':"http://www.w3.org/2001/XMLSchema-instance",
+              'xsi:schemaLocation':"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+            ){
+            modelVersion("4.0.0")
+            parent {
+              groupId("xyz")
+              artifactId("abc")
+              version(this.version)
+            }
             groupId(this.groupId)
             artifactId(this.artifactId)
-            version(this.version)
+
+            packaging('pom')
         }
     }    
   }
