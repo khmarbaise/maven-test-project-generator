@@ -21,6 +21,7 @@ class PomFile {
       'groupId' : 'org.apache.maven.plugins',
       'artifactId' : 'maven-jar-plugin',
       'version' : '2.6',
+      'configuration' : [ 'forceCreation':'true' ]
     ],
     [
       'groupId' : 'org.apache.maven.plugins',
@@ -91,6 +92,18 @@ class PomFile {
                         groupId(value['groupId'])
                         artifactId(value['artifactId'])
                         version(value['version'])
+                        //println "gav: ${value['groupId']}:${value['artifactId']}:${value['version']}  ${value['configuration']}"
+                        if (value.containsKey('configuration')) {
+                          def configItems = value['configuration']
+                          //println "items: ${configItems}"
+                          configuration {
+                            configItems.each { configItem, configValue ->
+                              //println " -> ${configItem} ${configValue}"
+                              "${configItem}"("${configValue}")
+                            }
+                          }
+                        }
+
                       }
                     }
                   }
