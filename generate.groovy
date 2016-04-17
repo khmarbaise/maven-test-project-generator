@@ -1,5 +1,38 @@
 #!/usr/bin/env groovy
+
 class PomFile {
+  def pluginList = [
+    [
+      'groupId' : 'org.apache.maven.plugins',
+      'artifactId' : 'maven-clean-plugin',
+      'version' : '3.0.0',
+    ],
+    [
+      'groupId' : 'org.apache.maven.plugins',
+      'artifactId' : 'maven-resources-plugin',
+      'version' : '2.7',
+    ],
+    [
+      'groupId' : 'org.apache.maven.plugins',
+      'artifactId' : 'maven-compiler-plugin',
+      'version' : '3.5.1',
+    ],
+    [
+      'groupId' : 'org.apache.maven.plugins',
+      'artifactId' : 'maven-jar-plugin',
+      'version' : '2.6',
+    ],
+    [
+      'groupId' : 'org.apache.maven.plugins',
+      'artifactId' : 'maven-install-plugin',
+      'version' : '2.5.2',
+    ],
+    [
+      'groupId' : 'org.apache.maven.plugins',
+      'artifactId' : 'maven-deploy-plugin',
+      'version' : '2.8.2',
+    ],
+  ]
   String groupId
   String artifactId
   String version
@@ -47,6 +80,22 @@ class PomFile {
                   module(it)
                 }
               }
+              properties {
+                'project.build.sourceEncoding'('UTF-8')
+              }
+              'build' {
+                pluginManagement {
+                  plugins {
+                    pluginList.each { value ->
+                      plugin {
+                        groupId(value['groupId'])
+                        artifactId(value['artifactId'])
+                        version(value['version'])
+                      }
+                    }
+                  }
+                }
+              }
             }
         }
     }    
@@ -62,9 +111,9 @@ if ( folder.exists() ) {
 folder.mkdirs()
 
 def levelList = []
-(1..3).each { level ->
+(1..1000).each { level ->
 
-  def levelFormat = sprintf ("%03d", level)
+  def levelFormat = sprintf ("%04d", level)
   def levelModuleName = 'level-' + levelFormat
   println "Level: ${levelModuleName}"
 
@@ -83,13 +132,3 @@ pf = new PomFile (folder, "org.test.parent", "reactor-parent", "1.0-SNAPSHOT")
 
 pf.writePomFile( null, levelList)
 
-/*
-(1..1000).each {
-  module ->
-  println module
-
-  def moduleFolder = new File ( folder, "module" + module)
-  moduleFolder.mkdirs()
-  
-}
-*/
