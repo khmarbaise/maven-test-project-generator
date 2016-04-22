@@ -25,6 +25,6 @@ What i did
  first [result picture about][maven-3.0.5-memory] memory evolvement 
  during run time.
 
-[maven-3.0.5-memory]: https://github.com/khmarbaise/maven-test-project-generator/Maven305-5000.png
+[maven-3.0.5-memory]: https://github.com/khmarbaise/maven-test-project-generator/blob/master/Maven305-5000.png
 [maven-3.0.5-start-debug]: https://git-wip-us.apache.org/repos/asf?p=maven.git;a=blob;f=maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java;h=5acd54a1156bea4033c4b443c1aa82dcb9e9927a;hb=01de14724cdef164cd33c7c8c2fe155faf9602da#l140
 [maven-3.0.5-stop-debug]: https://git-wip-us.apache.org/repos/asf?p=maven.git;a=blob;f=maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java;h=5acd54a1156bea4033c4b443c1aa82dcb9e9927a;hb=01de14724cdef164cd33c7c8c2fe155faf9602da#l543
