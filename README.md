@@ -69,6 +69,13 @@ jmap -dump:live,format=b,file=maven-3.0.5-5000.hprof PID
  correct pid which can be seen in JConsole.
 
 
+ During the above tests i had configured `$HOME/.mavenrc/` like this:
+
+```
+export MAVEN_OPTS="-Xmx6g -Xms4096m -XX:MaxPermSize=512m -Djava.awt.headless=true"
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home
+```
+
 [maven-3.0.5-memory]: https://github.com/khmarbaise/maven-test-project-generator/blob/master/Maven305-5000.png
 [maven-3.1.1-memory]: https://github.com/khmarbaise/maven-test-project-generator/blob/master/Maven311-5000.png
 [maven-3.2.5-memory]: https://github.com/khmarbaise/maven-test-project-generator/blob/master/Maven325-5000.png
