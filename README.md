@@ -29,6 +29,8 @@ What i did
  [`MavenCli.java` line 140][maven-3.0.5-start-debug]
   and an other one at [`MavenCli.java` line 543][maven-3.0.5-stop-debug].
 
+ For this i have checked out the appropriate tag in Git repo.
+
  After i got the break in the first break point i started JConsole and
  connected to the PID of the maven process and than let done the maven 
  process it's work. After some time the maven process ended i got the 
