@@ -16,7 +16,7 @@ What i did
        .
        +--- mod5000 (pom.xml)
 
- So only a single lever of hierarchy.
+ So only a single level hierarchy.
 
   
  Started Maven 3.0.5 via:
