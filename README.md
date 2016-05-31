@@ -58,6 +58,10 @@ What i did
   * [Result Maven 3.2.5][maven-3.2.5-memory]
   * [Result Maven 3.3.9][maven-3.3.9-memory]
 
+ The following result is after applying the simple patch from MNG-6030:
+
+  * [Result Maven 3.4.0-Patch][maven-3.4.0-memory-patch]
+
 
  For further analysis it's worth to get heap dumps which can easily created
  by using the following command:
@@ -80,6 +84,7 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home
 [maven-3.1.1-memory]: https://github.com/khmarbaise/maven-test-project-generator/blob/master/Maven311-5000.png
 [maven-3.2.5-memory]: https://github.com/khmarbaise/maven-test-project-generator/blob/master/Maven325-5000.png
 [maven-3.3.9-memory]: https://github.com/khmarbaise/maven-test-project-generator/blob/master/Maven339-5000.png
+[maven-3.4.0-memory-patch]: https://github.com/khmarbaise/maven-test-project-generator/blob/master/Maven340-with-patch-5000.png
 [maven-3.0.5-start-debug]: https://git-wip-us.apache.org/repos/asf?p=maven.git;a=blob;f=maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java;h=5acd54a1156bea4033c4b443c1aa82dcb9e9927a;hb=01de14724cdef164cd33c7c8c2fe155faf9602da#l140
 [maven-3.0.5-stop-debug]: https://git-wip-us.apache.org/repos/asf?p=maven.git;a=blob;f=maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java;h=5acd54a1156bea4033c4b443c1aa82dcb9e9927a;hb=01de14724cdef164cd33c7c8c2fe155faf9602da#l543
 [maven-3.1.1-start-debug]: https://git-wip-us.apache.org/repos/asf?p=maven.git;a=blob;f=maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java;h=5acd54a1156bea4033c4b443c1aa82dcb9e9927a;hb=01de14724cdef164cd33c7c8c2fe155faf9602da#l14://git-wip-us.apache.org/repos/asf?p=maven.git;a=blob;f=maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java;h=1c142c4ec902936464b1fd515acdafa5feca945e;hb=0728685237757ffbf44136acec0402957f723d9#l157 
