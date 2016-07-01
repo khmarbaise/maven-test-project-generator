@@ -10,7 +10,7 @@ class PomFile {
     [
       'groupId' : 'org.apache.maven.plugins',
       'artifactId' : 'maven-resources-plugin',
-      'version' : '2.7',
+      'version' : '3.0.1',
     ],
     [
       'groupId' : 'org.apache.maven.plugins',
@@ -20,7 +20,7 @@ class PomFile {
     [
       'groupId' : 'org.apache.maven.plugins',
       'artifactId' : 'maven-jar-plugin',
-      'version' : '2.6',
+      'version' : '3.0.2',
       'configuration' : [ 'forceCreation':'true' ]
     ],
     [
@@ -152,7 +152,7 @@ if ( folder.exists() ) {
 folder.mkdirs()
 
 def levelList = []
-(1..5000).each { level ->
+(1..500).each { level ->
 
   def levelFormat = sprintf ("%04d", level)
   def levelModuleName = 'module-' + levelFormat
