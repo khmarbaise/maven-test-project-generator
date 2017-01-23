@@ -10,7 +10,7 @@ class PomFile {
     [
       'groupId' : 'org.apache.maven.plugins',
       'artifactId' : 'maven-resources-plugin',
-      'version' : '3.0.1',
+      'version' : '3.0.2',
     ],
     [
       'groupId' : 'org.apache.maven.plugins',
@@ -93,6 +93,8 @@ class PomFile {
               }
               properties {
                 'project.build.sourceEncoding'('UTF-8')
+                'maven.compiler.source'('1.7')
+                'maven.compiler.target'('1.7')
               }
               'build' {
                 pluginManagement {
