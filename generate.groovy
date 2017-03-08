@@ -15,7 +15,7 @@ class PomFile {
     [
       'groupId' : 'org.apache.maven.plugins',
       'artifactId' : 'maven-compiler-plugin',
-      'version' : '3.5.1',
+      'version' : '3.6.1',
     ],
     [
       'groupId' : 'org.apache.maven.plugins',
@@ -78,11 +78,12 @@ class PomFile {
                 artifactId(parentPar['artifactId'])
                 version(this.version)
               }
-            } else {
-              version(this.version)
             }
             groupId(this.groupId)
             artifactId(this.artifactId)
+            if (parentPar == null) {
+              version(this.version)
+            }
 
             if (modulesPar != null) {
               packaging('pom')
@@ -154,7 +155,7 @@ if ( folder.exists() ) {
 folder.mkdirs()
 
 def levelList = []
-(1..500).each { level ->
+(1..5000).each { level ->
 
   def levelFormat = sprintf ("%04d", level)
   def levelModuleName = 'module-' + levelFormat
@@ -163,7 +164,7 @@ def levelList = []
   levelFolder = new File (folder, levelModuleName);
   levelFolder.mkdirs()
 
-  PomFile pf = new PomFile (levelFolder, "org.test.level", levelModuleName, "1.0-SNAPSHOT")
+  PomFile pf = new PomFile (levelFolder, "org.test.level", levelModuleName, "\${revision}")
 
   pf.writePomFile(['groupId':'org.test.parent', 'artifactId':'reactor-parent'])
 
@@ -173,7 +174,7 @@ def levelList = []
 
 }
 
-pf = new PomFile (folder, "org.test.parent", "reactor-parent", "1.0-SNAPSHOT")
+pf = new PomFile (folder, "org.test.parent", "reactor-parent", "\${revision}")
 
 pf.writePomFile( null, levelList)
 
