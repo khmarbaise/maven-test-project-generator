@@ -5,17 +5,17 @@ class PomFile {
     [
       'groupId' : 'org.apache.maven.plugins',
       'artifactId' : 'maven-clean-plugin',
-      'version' : '3.0.0',
+      'version' : '3.1.0',
     ],
     [
       'groupId' : 'org.apache.maven.plugins',
       'artifactId' : 'maven-resources-plugin',
-      'version' : '3.0.2',
+      'version' : '3.1.0',
     ],
     [
       'groupId' : 'org.apache.maven.plugins',
       'artifactId' : 'maven-compiler-plugin',
-      'version' : '3.6.1',
+      'version' : '3.8.0',
     ],
     [
       'groupId' : 'org.apache.maven.plugins',
@@ -36,12 +36,12 @@ class PomFile {
     [
       'groupId' : 'org.apache.maven.plugins',
       'artifactId' : 'maven-surefire-plugin',
-      'version' : '2.19.1',
+      'version' : '2.22.0',
     ],
     [
       'groupId' : 'org.apache.maven.plugins',
       'artifactId' : 'maven-failsafe-plugin',
-      'version' : '2.19.1',
+      'version' : '2.22.0',
     ],
   ]
   String groupId
@@ -155,7 +155,7 @@ if ( folder.exists() ) {
 folder.mkdirs()
 
 def levelList = []
-(1..5000).each { level ->
+(1..2000).each { level ->
 
   def levelFormat = sprintf ("%04d", level)
   def levelModuleName = 'module-' + levelFormat
