@@ -15,12 +15,12 @@ class PomFile {
     [
       'groupId' : 'org.apache.maven.plugins',
       'artifactId' : 'maven-compiler-plugin',
-      'version' : '3.8.0',
+      'version' : '3.8.1',
     ],
     [
       'groupId' : 'org.apache.maven.plugins',
       'artifactId' : 'maven-jar-plugin',
-      'version' : '3.0.2',
+      'version' : '3.2.0',
       'configuration' : [ 'forceCreation':'true' ]
     ],
     [
@@ -36,12 +36,12 @@ class PomFile {
     [
       'groupId' : 'org.apache.maven.plugins',
       'artifactId' : 'maven-surefire-plugin',
-      'version' : '2.22.0',
+      'version' : '2.22.2',
     ],
     [
       'groupId' : 'org.apache.maven.plugins',
       'artifactId' : 'maven-failsafe-plugin',
-      'version' : '2.22.0',
+      'version' : '2.22.2',
     ],
   ]
   String groupId
@@ -164,7 +164,7 @@ def levelList = []
   levelFolder = new File (folder, levelModuleName);
   levelFolder.mkdirs()
 
-  PomFile pf = new PomFile (levelFolder, "org.test.level", levelModuleName, "\${revision}")
+  PomFile pf = new PomFile (levelFolder, "org.test.level", levelModuleName, "1.0.0-SNAPSHOT")
 
   pf.writePomFile(['groupId':'org.test.parent', 'artifactId':'reactor-parent'])
 
@@ -174,7 +174,7 @@ def levelList = []
 
 }
 
-pf = new PomFile (folder, "org.test.parent", "reactor-parent", "\${revision}")
+pf = new PomFile (folder, "org.test.parent", "reactor-parent", "1.0.0-SNAPSHOT")
 
 pf.writePomFile( null, levelList)
 

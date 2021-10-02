@@ -1,1 +1,3 @@
 reactor
+*.tar.gz
+apache-maven-*/
