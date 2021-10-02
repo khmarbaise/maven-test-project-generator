@@ -29,9 +29,11 @@ done
 
 for jdk in "${JDKS[@]}"; do
 	echo "Running with JDK: $jdk"
-#	sdk use java $jdk
+	sdk use java $jdk
 	cd reactor
-#	hyperfine --warmup 5 --export-markdown ../results-$jdk.md --parameter-list version ${VERSIONS[@]} '../apache-maven-{version}/bin/mvn clean'
-	hyperfine --warmup 5 --export-markdown ../results-$jdk.md "${COMMAND[@]}"
+	#hyperfine --warmup 5 --export-markdown ../results-$jdk.md --parameter-list version ${VERSIONS[*]} '../apache-maven-{version}/bin/mvn clean'
+
+	( IFS=, ; hyperfine -w 5 --export-markdown ../results-$jdk.md --parameter-list version "${VERSIONS[*]}" -n "$jdk-{version}" '../apache-maven-{version}/bin/mvn clean' )
+#	hyperfine --warmup 5 --export-markdown ../results-$jdk.md "${COMMAND[@]}"
 	cd ..
 done
