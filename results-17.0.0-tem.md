@@ -1,12 +1,12 @@
 | Command | Mean [s] | Min [s] | Max [s] | Relative |
 |:---|---:|---:|---:|---:|
-| `../apache-maven-3.0.5/bin/mvn clean` | 4.760 ± 0.078 | 4.659 | 4.894 | 1.39 ± 0.05 |
-| `../apache-maven-3.1.1/bin/mvn clean` | 7.186 ± 0.052 | 7.100 | 7.258 | 2.10 ± 0.07 |
-| `../apache-maven-3.2.5/bin/mvn clean` | 7.372 ± 0.079 | 7.305 | 7.566 | 2.16 ± 0.07 |
-| `../apache-maven-3.3.9/bin/mvn clean` | 8.044 ± 0.095 | 7.964 | 8.260 | 2.35 ± 0.08 |
-| `../apache-maven-3.5.4/bin/mvn clean` | 6.614 ± 0.049 | 6.529 | 6.699 | 1.93 ± 0.06 |
-| `../apache-maven-3.6.3/bin/mvn clean` | 6.008 ± 0.096 | 5.883 | 6.170 | 1.76 ± 0.06 |
-| `../apache-maven-3.8.1/bin/mvn clean` | 5.954 ± 0.079 | 5.873 | 6.100 | 1.74 ± 0.06 |
-| `../apache-maven-3.8.2/bin/mvn clean` | 5.566 ± 0.086 | 5.460 | 5.678 | 1.63 ± 0.06 |
-| `../apache-maven-3.8.3/bin/mvn clean` | 3.419 ± 0.104 | 3.304 | 3.567 | 1.00 |
-| `../apache-maven-4.0.0-alpha-1-SNAPSHOT/bin/mvn clean` | 5.391 ± 0.072 | 5.278 | 5.473 | 1.58 ± 0.05 |
+| `../apache-maven-3.0.5/bin/mvn clean` | 5.120 ± 0.107 | 4.933 | 5.333 | 1.49 ± 0.06 |
+| `../apache-maven-3.1.1/bin/mvn clean` | 7.752 ± 0.087 | 7.645 | 7.934 | 2.26 ± 0.07 |
+| `../apache-maven-3.2.5/bin/mvn clean` | 8.062 ± 0.131 | 7.922 | 8.353 | 2.35 ± 0.08 |
+| `../apache-maven-3.3.9/bin/mvn clean` | 8.794 ± 0.062 | 8.691 | 8.910 | 2.56 ± 0.08 |
+| `../apache-maven-3.5.4/bin/mvn clean` | 7.178 ± 0.089 | 7.036 | 7.331 | 2.09 ± 0.07 |
+| `../apache-maven-3.6.3/bin/mvn clean` | 6.033 ± 0.115 | 5.791 | 6.175 | 1.76 ± 0.06 |
+| `../apache-maven-3.8.1/bin/mvn clean` | 6.117 ± 0.056 | 6.043 | 6.235 | 1.78 ± 0.06 |
+| `../apache-maven-3.8.2/bin/mvn clean` | 5.704 ± 0.106 | 5.510 | 5.818 | 1.66 ± 0.06 |
+| `../apache-maven-3.8.3/bin/mvn clean` | 3.431 ± 0.106 | 3.237 | 3.600 | 1.00 |
+| `../apache-maven-4.0.0-alpha-1-SNAPSHOT/bin/mvn clean` | 5.114 ± 0.078 | 4.924 | 5.197 | 1.49 ± 0.05 |

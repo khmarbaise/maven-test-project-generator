@@ -33,7 +33,7 @@ for jdk in "${JDKS[@]}"; do
 	cd reactor
 	#hyperfine --warmup 5 --export-markdown ../results-$jdk.md --parameter-list version ${VERSIONS[*]} '../apache-maven-{version}/bin/mvn clean'
 
-	( IFS=, ; hyperfine -w 5 --export-markdown ../results-$jdk.md --parameter-list version "${VERSIONS[*]}" -n "$jdk-{version}" '../apache-maven-{version}/bin/mvn clean' )
+	( IFS=, ; hyperfine -w 5 --export-markdown ../results-$jdk.md --parameter-list version "${VERSIONS[*]}" '../apache-maven-{version}/bin/mvn clean' )
 #	hyperfine --warmup 5 --export-markdown ../results-$jdk.md "${COMMAND[@]}"
 	cd ..
 done
